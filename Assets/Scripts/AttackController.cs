@@ -5,6 +5,8 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource attackSound;
+
 
     private bool _isAttack = false;
 
@@ -15,11 +17,6 @@ public class AttackController : MonoBehaviour
         _isAttack = false;
     }
 
-    void Start()
-    {
-        
-    }
-
    
     void Update()
     {
@@ -27,6 +24,7 @@ public class AttackController : MonoBehaviour
         {
             _isAttack = true;
             animator.SetTrigger("attack");
+            attackSound.Play();
         }
     }
 }

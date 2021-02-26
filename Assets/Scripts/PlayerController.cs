@@ -5,13 +5,16 @@ using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speedX = 1f; // Благодаря этому, поле появится в Scripte Unity
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerModelTransform;
+    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private float speedX = 1f; // Благодаря этому, поле появится в Scripte Unity
+
 
     private Rigidbody2D _rb;
     private Finish _finish;
     private LeverArm _leverArm;
+    
     
 
     private float _horizontal = 0f;
@@ -40,7 +43,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("speedX", Mathf.Abs(_horizontal));
 
         if (Input.GetKey(KeyCode.W) && _isGround)
+        {
             _isJump = true;
+            jumpSound.Play();
+        }
 
         if (Input.GetKeyUp(KeyCode.F))
         {
