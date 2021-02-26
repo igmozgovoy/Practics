@@ -31,6 +31,7 @@ public class EnemyAttack : MonoBehaviour
         }
 
     }
+
     void OnCollisionStay2D(Collision2D other)
     {
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();

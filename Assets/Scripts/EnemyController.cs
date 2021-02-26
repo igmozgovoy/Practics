@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private Transform enemyTransform;
     [SerializeField] private float walkDistance = 6f;
     [SerializeField] private float walkSpeed = 1f;
     [SerializeField] private float timeToWait = 5f;
@@ -99,9 +100,9 @@ public class EnemyController : MonoBehaviour
     void Flip()
     {
         _isFacingRight = !_isFacingRight;
-        Vector3 playerScale = transform.localScale;
+        Vector3 playerScale = enemyTransform.localScale;
         playerScale.x *= -1;
-        transform.localScale = playerScale;
+        enemyTransform.localScale = playerScale;
     }
 
     void StartWaitTimer()

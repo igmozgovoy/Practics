@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speedX = 1f; // Благодаря этому, поле появится в Scripte Unity
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform playerModelTransform;
 
     private Rigidbody2D _rb;
     private Finish _finish;
@@ -75,9 +76,9 @@ public class PlayerController : MonoBehaviour
     void Flip()
     {
         _isFacingRight = !_isFacingRight;
-        Vector3 playerScale = transform.localScale;
+        Vector3 playerScale = playerModelTransform.localScale;
         playerScale.x *= -1;
-        transform.localScale = playerScale;
+        playerModelTransform.localScale = playerScale;
     }
 
     void OnCollisionEnter2D (Collision2D other)
